@@ -1,0 +1,40 @@
+/* lezione presenza Mirandola */
+/* calcolo coefficiente binomiale */
+
+#include <stdio.h>
+
+int 
+
+int main() {
+	int num1, num2, fatt1, fatt2, dFatt;
+	int coeffBin;
+	
+	printf("Inserisci n e k\n");
+	scanf("%d%d", &num1, &num2);
+	
+	/* calcolo fattoriale di num1  e metto risultato in fatt1 */	
+	fatt1 = calcoloFatt(num1);
+	
+	/* calcolo fattoriale di num2  e metto risultato in fatt2 */
+	fatt2 = calcoloFatt(num2);
+	
+	/* calcolo fattoriale di num1-num2  e metto risultato in dFatt */
+	dFatt = calcoloFatt(num1 - num2);
+	
+	coeffBin = fatt1 / (fatt2 * dFatt);
+	
+	printf("\nCoefficiente binomiale: %f\n", coeffBin);
+	
+	return 0;
+}
+
+int fattoriale(num) {
+	int fatt, i;
+	fatt = 1;
+	
+	for(i = 1; i < num; i++) {
+		fatt *= i;
+	}
+	
+	return fatt;
+}

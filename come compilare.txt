@@ -1,0 +1,11 @@
+// come compilare
+
+gcc -ansi -pedantic file.c -o eseguibile
+./eseguibile
+
+//oppure
+gcc -ansi -pedantic file.c
+./a.out
+
+//tutte le warning
+gcc file.c -o file -Wall
