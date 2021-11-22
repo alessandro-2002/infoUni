@@ -48,7 +48,7 @@ void popola_file(char nomeFile[]) {
 		do {
 			printf("Quante persone vuoi inserire?\n");
 			scanf("%d", &n);
-		} while(n <= 0 || n >= DIM); 
+		} while(n <= 0 || n >= DIM);
 		
 		for(i = 0; i < n; i++) {
 			printf("Inserisci cognome nome sesso anno\n");
