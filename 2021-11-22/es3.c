@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 
-#define LEN 10
-#define DIM 10
+#define LEN 100
+#define DIM 100
 
 typedef struct {
 	char cognome[LEN+1];

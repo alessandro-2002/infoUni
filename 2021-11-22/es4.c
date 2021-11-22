@@ -9,23 +9,23 @@
 char getRot(char c);
 
 int main() {
-	FILE *f1, *f2;
+	FILE *fp_input, *fp_output;
 	char c;
 	
-	f1 = fopen(NFILEI, "r");
+	fp_input = fopen(NFILEI, "r");
+	fp_output = fopen(NFILEO, "w");
 	
-	if(f1 != NULL) {
-		f2 = fopen(NFILEO, "w+");
+	if(fp_input != NULL && fp_output != NULL) {
 		
-		fscanf(f1, "%c", &c);
-		while(!feof(f1)) {
+		fscanf(fp_input, "%c", &c);
+		while(!feof(fp_input)) {
 			if(c >= 'a' && c <= 'z')
-				fprintf(f2, "%c", getRot(c));
-			fscanf(f1, "%c", &c);
+				fprintf(fp_output, "%c", getRot(c));
+			fscanf(fp_input, "%c", &c);
 		}
 		
-		fclose(f1);
-		fclose(f2);
+		fclose(fp_input);
+		fclose(fp_output);
 	} else {
 		printf("Errore nell'apertura del file\n");
 	}
@@ -35,6 +35,7 @@ int main() {
 
 char getRot(char c) {
 	char res;
+	
 	
 	if(c == ' '){
 		res = ' ';
