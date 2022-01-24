@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nodo {
+int val;
+struct nodo *next;
+} nodo_t;
+
+typedef nodo_t *Ptr_nodo;
+
+Ptr_nodo Concat(Ptr_nodo l1, Ptr_nodo l2){
+
+    Ptr_nodo newLista;
+    newLista = NULL;
+
+    while(l1 || l2){
+
+        if(l1){
+            newLista = aggiungi_in_coda(l1);
+            l1 = l1->next;
+        }
+        if(l2){
+            newLista = aggiungi_in_coda(l2);    
+            l2 = l2->next;
+        }        
+    }
+    return newLista;
+}

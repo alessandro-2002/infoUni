@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nodo {
+int val;
+struct nodo *next;
+} nodo_t;
+
+typedef nodo_t *Ptr_nodo;
+
+Ptr_nodo reverse(Ptr_nodo head){
+
+    Ptr_nodo prec;
+    Ptr_nodo succ;
+
+    prec = NULL;
+    
+
+    while(head){
+        
+        succ = head->next;
+        head->next = prec;
+        prec = head;
+        head = succ;
+    }
+
+    return prec;
+
+}

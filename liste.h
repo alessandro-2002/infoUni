@@ -57,12 +57,13 @@ Ptr_nodo inserisci_in_coda(Ptr_nodo l, int num) {
    ******************* */
 
 /* distruzione lista */
-Ptr_nodo distruggi_lista(Ptr_nodo l) {
-	Ptr_nodo next;
-	while(l) {
-		next = l->next;
-		free(l);
-		l = next;
+Ptr_nodo distruggi_lista(Ptr_nodo l){
+	Ptr_nodo temp;
+	
+	while(l){
+		temp=l;
+		l=l->next;
+		free(temp);
 	}
 	
 	return NULL;
@@ -83,7 +84,7 @@ int lunghezza(Ptr_nodo l) {
 }   
 
 /* stampa easy */
-void stampaLista(Ptr_nodo l) {
+void stampa_lista(Ptr_nodo l) {
 	while(l) {
 		printf("%d ", l->val);
 		l = l->next;

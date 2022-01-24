@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nodo {
+int val;
+struct nodo *next;
+} nodo_t;
+
+typedef nodo_t *Ptr_nodo;
+
+Ptr_nodo OrdinaLista(Ptr_nodo l){
+
+    Ptr_nodo listaOrd, temp, precTemp;
+
+    if(l == NULL || l->next == NULL){
+        return l;
+    }
+
+    listaOrd = OrdinaLista(l->next);
+    temp = listaOrd;
+    while(temp != NULL && temp->val  < l->val){
+        precTemp = temp;
+        temp = temp->next;        
+    }
+    if(temp == listaOrd){
+        l->next = listaOrd;
+        return l;
+    }
+    else{
+        l->next = temp;
+        precTemp->next = l;
+        return listaOrd;
+    }
+}

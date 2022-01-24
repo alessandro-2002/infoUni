@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include"header.h"
+
+
+Ptr_nodo k_dalla_fine(Ptr_nodo l, int k){
+    int index,i;
+
+    index = lunghezza_Lista(l) - k; // indice al quale devo arrivare
+    while(index > 0){  // scorro fino a quando index non è uguale a 0, ciò significa che ho raggiunto l'indice giusto
+        l=l->next;
+        index--;
+    }
+    
+    return l;
+}
+
+int main(){
+    Ptr_nodo l;
+    l = inserisci_in_testa(l, 3);
+    l = inserisci_in_testa(l, 42);
+    l = inserisci_in_testa(l, 5);
+    l = inserisci_in_testa(l, 1);
+
+    printf("%d\n", k_dalla_fine(l, 2)->val);
+    free_List(l);
+
+    return 0;
+}
